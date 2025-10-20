@@ -1,0 +1,33 @@
+
+{
+
+    "name": "WebPeek",
+    "version": "1.0",
+    "description": "Summarizes web pages",
+    "manifest_version": 3,
+
+
+    "permissions": ["activeTab", "scripting", "storage", "tabs"],
+
+    
+    "options_ui": {
+        
+        "page": "options/options.html",
+        
+        "open_in_tab": false
+    },
+
+    "content_scripts": [{
+      
+        "js": ["scripts/content.js", "scripts/jquery-3.7.0.min.js"],
+        
+        "matches": [
+            "<all_urls>",
+            "*://www.google.com/search?q=*"
+        ],
+        
+        "exclude_globs": [
+            "*://docs.google.com/*"
+        ]
+    }]
+}
